@@ -38,7 +38,7 @@ fun RecipeCard(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column {
-            Box(){
+            Box {
                 AsyncImage(
                     model = recipe.imageUrl,
                     contentDescription = recipe.title,

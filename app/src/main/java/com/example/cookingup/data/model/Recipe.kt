@@ -26,7 +26,7 @@ data class Recipe(
     val imageUrl: String,
     val prepTimeMin: Int,
     val servings: Int,
-    val ingredient: List<Ingredient>,
+    val ingredients: List<Ingredient>,
     val steps: List<String>,
     val category: Category,
     val isFavorite: Boolean = false
