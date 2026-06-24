@@ -106,10 +106,10 @@ fun RecipeAppNavHost() {
     ) { padding ->
         NavHost(
             navController    = navController,
-            startDestination = RecipeListRoute,           // un objet, pas une string
-            modifier         = Modifier.padding(padding)
+            startDestination = RecipeListRoute,
+            modifier = Modifier.padding(padding)
         ) {
-            composable<RecipeListRoute> {                   // type-safe — pas de string
+            composable<RecipeListRoute> {
                 RecipeListScreen(
                     onRecipeClick = { id ->
                         navController.navigate(RecipeDetailRoute(recipeId = id))
@@ -117,7 +117,7 @@ fun RecipeAppNavHost() {
                 )
             }
             composable<RecipeDetailRoute> { backStack ->
-                val route = backStack.toRoute<RecipeDetailRoute>()  // extraction type-safe
+                val route = backStack.toRoute<RecipeDetailRoute>()
                 RecipeDetailScreen(
                     recipeId = route.recipeId,
                     onBack   = { navController.popBackStack() }
@@ -125,7 +125,7 @@ fun RecipeAppNavHost() {
             }
             composable<FavoritesRoute> {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("❤️ Favoris")
+                    Text("❤️Favoris")
                 }
             }
             composable<CreateRoute> {

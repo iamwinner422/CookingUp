@@ -11,14 +11,22 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.cookingup.data.model.sampleRecipes
 import com.example.cookingup.ui.components.RecipeCard
+import androidx.compose.runtime.getValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecipeListScreen(
-    onRecipeClick: (Int) -> Unit
+    onRecipeClick: (Int) -> Unit,
+    viewModel: RecipesViewModel
 ) {
+
+    val recipes by viewModel.recipes.collectAsStateWithLifecycle()
+    val query by viewModel.query.collectAsStateWithLifecycle()
+    val category by viewModel.category.collectAsStateWithLifecycle()
+
     Scaffold(
         topBar = { TopAppBar(title = { Text("RecipeApp") }) }
     ) { padding ->
